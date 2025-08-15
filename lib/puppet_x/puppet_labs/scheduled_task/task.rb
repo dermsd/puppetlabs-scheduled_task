@@ -364,6 +364,13 @@ module PuppetX::PuppetLabs::ScheduledTask
                                           else
                                             TASK_LOGON_TYPE::TASK_LOGON_INTERACTIVE_TOKEN
                                           end
+        account = Puppet::Util::Windows::SID::name_to_principal(user)
+        if ! account.nil?
+          case account.account_type
+          when :SidTypeGroup, :SidTypeAlias, :SidTypeWellKnownGroup
+            @definition.Principal.LogonType = TASK_LOGON_TYPE::TASK_LOGON_GROUP
+          end
+        end
       end
 
       true
