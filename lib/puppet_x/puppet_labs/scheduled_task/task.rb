@@ -223,7 +223,7 @@ module PuppetX::PuppetLabs::ScheduledTask
       self.compatibility = TASK_COMPATIBILITY::TASK_COMPATIBILITY_V1 if compatibility_level == :v1_compatibility
 
       if task_groupid == ''
-        set_group_information(task_groupid, nil)
+        set_group_information(task_groupid)
       else
         set_account_information(task_userid, nil)
       end
