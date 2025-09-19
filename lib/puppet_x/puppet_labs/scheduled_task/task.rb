@@ -383,7 +383,7 @@ module PuppetX::PuppetLabs::ScheduledTask
       @definition.Principal.RunLevel = TASK_RUNLEVEL_TYPE::TASK_RUNLEVEL_HIGHEST
 
       @definition.Principal.GroupId = group
-      @definition.Principal.LogonType = TASK_LOGON_GROUP
+      @definition.Principal.LogonType = TASK_LOGON_TYPE::TASK_LOGON_GROUP
 
       true
     end
